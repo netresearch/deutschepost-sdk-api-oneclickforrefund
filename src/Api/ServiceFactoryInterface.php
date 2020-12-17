@@ -17,6 +17,8 @@ use Psr\Log\LoggerInterface;
 interface ServiceFactoryInterface
 {
     /**
+     * Create the service instance to process voucher cancellation.
+     *
      * @param CredentialsInterface $credentials
      * @param LoggerInterface $logger
      * @return RefundServiceInterface
