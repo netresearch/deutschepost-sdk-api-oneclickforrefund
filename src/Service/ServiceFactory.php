@@ -12,6 +12,7 @@ namespace DeutschePost\Sdk\OneClickForRefund\Service;
 use DeutschePost\Sdk\OneClickForRefund\Api\Data\CredentialsInterface;
 use DeutschePost\Sdk\OneClickForRefund\Api\RefundServiceInterface;
 use DeutschePost\Sdk\OneClickForRefund\Api\ServiceFactoryInterface;
+use DeutschePost\Sdk\OneClickForRefund\Serializer\ClassMap;
 use DeutschePost\Sdk\OneClickForRefund\Soap\SoapServiceFactory;
 use Psr\Log\LoggerInterface;
 
