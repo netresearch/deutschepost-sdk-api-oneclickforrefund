@@ -37,10 +37,20 @@ class RefundService implements RefundServiceInterface
 
     public function cancelVouchers(string $orderId, array $voucherIds = []): int
     {
+        $voucherNumbers = array_map(
+            function (string $voucherId) {
+                return hexdec(substr($voucherId, 10, 9));
+            },
+            $voucherIds
+        );
+
         try {
             $token = $this->tokenProvider->getToken();
+
             $shoppingCart = new ShoppingCart($orderId);
-            $shoppingCart->setVoucherSet(new VoucherSet($voucherIds));
+            if (!empty($voucherNumbers)) {
+                $shoppingCart->setVoucherSet(new VoucherSet($voucherNumbers));
+            }
 
             $shopRetoureId = $this->client->createRetoureId();
             $request = new CancelVouchersRequest($token, $shopRetoureId->getShopRetoureId(), $shoppingCart);

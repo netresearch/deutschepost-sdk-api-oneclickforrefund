@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace DeutschePost\Sdk\OneClickForRefund\Service;
 
-
 use DeutschePost\Sdk\OneClickForRefund\Api\Data\CredentialsInterface;
 use DeutschePost\Sdk\OneClickForRefund\Api\RefundServiceInterface;
 use DeutschePost\Sdk\OneClickForRefund\Api\ServiceFactoryInterface;
@@ -26,7 +25,7 @@ class ServiceFactory implements ServiceFactoryInterface
     ): RefundServiceInterface {
         $options = [
             'trace' => 1,
-            'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+            'features' => \SOAP_SINGLE_ELEMENT_ARRAYS,
             'classmap' => ClassMap::get(),
         ];
 
@@ -38,6 +37,5 @@ class ServiceFactory implements ServiceFactoryInterface
 
         $soapServiceFactory = new SoapServiceFactory($soapClient);
         return $soapServiceFactory->createRefundService($credentials, $logger);
-
     }
 }

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace DeutschePost\Sdk\OneClickForRefund\Service;
 
-
 use DeutschePost\Sdk\OneClickForRefund\Exception\ServiceException;
 use DeutschePost\Sdk\OneClickForRefund\Exception\ServiceExceptionFactory;
 use DeutschePost\Sdk\OneClickForRefund\Model\AuthenticateUserRequest;
