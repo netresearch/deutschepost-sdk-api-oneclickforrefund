@@ -37,7 +37,7 @@ class AuthenticationDecorator extends AbstractDecorator
         parent::__construct($client);
     }
 
-    private function setAuthHeaders()
+    private function setAuthHeaders(): void
     {
         $partnerId = $this->credentials->getPartnerId();
         $keyPhase = $this->credentials->getKeyPhase();

@@ -39,21 +39,23 @@ class RefundService implements RefundServiceInterface
     {
         $voucherNumbers = array_map(
             function (string $voucherId) {
-                return hexdec(substr($voucherId, 10, 9));
+                return (string) hexdec(substr($voucherId, 10, 9));
             },
             $voucherIds
         );
 
         try {
-            $token = $this->tokenProvider->getToken();
-
             $shoppingCart = new ShoppingCart($orderId);
             if (!empty($voucherNumbers)) {
                 $shoppingCart->setVoucherSet(new VoucherSet($voucherNumbers));
             }
 
             $shopRetoureId = $this->client->createRetoureId();
-            $request = new CancelVouchersRequest($token, $shopRetoureId->getShopRetoureId(), $shoppingCart);
+            $request = new CancelVouchersRequest(
+                $this->tokenProvider->getToken(),
+                $shopRetoureId->getShopRetoureId(),
+                $shoppingCart
+            );
             $response = $this->client->retoureVouchers($request);
         } catch (AuthenticationErrorException $exception) {
             $this->tokenProvider->resetToken();

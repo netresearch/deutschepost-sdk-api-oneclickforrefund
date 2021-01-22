@@ -1,0 +1,16 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+    <soap:Fault>
+        <faultcode>soap:Server</faultcode>
+        <faultstring>Order not found</faultstring>
+        <detail>
+            <RetoureVoucherException xmlns="http://oneclickforrefund.dpag.de">
+                <message>Order not found</message>
+                <errors>
+                    <id>unknownShopOrderId</id>
+                    <message>Order with ID '123XXXX890' not found.</message>
+                </errors>
+            </RetoureVoucherException>
+        </detail>
+    </soap:Fault>
+</soap:Body></soap:Envelope>

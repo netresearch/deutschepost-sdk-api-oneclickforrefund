@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <AuthenticateUserResponse xmlns="http://oneclickforrefund.dpag.de">
+            <userToken>%userToken%</userToken>
+        </AuthenticateUserResponse>
+    </soap:Body>
+</soap:Envelope>

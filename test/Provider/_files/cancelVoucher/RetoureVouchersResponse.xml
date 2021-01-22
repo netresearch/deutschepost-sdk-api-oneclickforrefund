@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <RetoureVouchersResponse xmlns="http://oneclickforrefund.dpag.de">
+            <retoureTransactionId>1234567</retoureTransactionId>
+        </RetoureVouchersResponse>
+    </soap:Body>
+</soap:Envelope>

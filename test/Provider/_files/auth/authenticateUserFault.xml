@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <soap:Fault>
+            <faultcode>soap:Server</faultcode>
+            <faultstring>Unknown user or invalid password</faultstring>
+            <detail>
+                <AuthenticateUserException xmlns="http://oneclickforrefund.dpag.de">
+                    <id>unkownUser</id>
+                    <message>Unknown user or invalid password</message>
+                </AuthenticateUserException>
+            </detail>
+        </soap:Fault>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,17 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <soap:Fault>
+            <faultcode>soap:Server</faultcode>
+            <faultstring>Usertoken is invalid: myToken</faultstring>
+            <detail>
+                <RetoureVoucherException xmlns="http://oneclickforrefund.dpag.de">
+                    <message>Usertoken is invalid: myToken</message>
+                    <errors>
+                        <id>unknownUser</id>
+                        <message>Usertoken is invalid: myToken</message>
+                    </errors>
+                </RetoureVoucherException>
+            </detail>
+        </soap:Fault>
+    </soap:Body>
+</soap:Envelope>
