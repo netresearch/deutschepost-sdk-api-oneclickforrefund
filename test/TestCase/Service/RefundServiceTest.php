@@ -88,7 +88,6 @@ class RefundServiceTest extends SoapServiceTestCase
     public function appAuthenticationError(): void
     {
         $this->expectException(ServiceException::class);
-        $this->expectExceptionMessageRegExp('/Unknown channel/');
 
         $logger = new TestLogger();
         $credentials = new Credentials(
@@ -115,6 +114,8 @@ class RefundServiceTest extends SoapServiceTestCase
                 $logger
             );
 
+            $this->assertNotFalse(strpos($exception->getMessage(), 'Unknown channel'));
+
             throw $exception;
         }
     }
@@ -133,7 +134,6 @@ class RefundServiceTest extends SoapServiceTestCase
     public function userAuthenticationError(): void
     {
         $this->expectException(ServiceException::class);
-        $this->expectExceptionMessageRegExp('/invalid password/');
 
         $logger = new TestLogger();
         $credentials = new Credentials(
@@ -163,6 +163,8 @@ class RefundServiceTest extends SoapServiceTestCase
                 $logger
             );
 
+            $this->assertNotFalse(strpos($exception->getMessage(), 'invalid password'));
+
             throw $exception;
         }
     }
@@ -181,7 +183,6 @@ class RefundServiceTest extends SoapServiceTestCase
     public function unknownOrderId(): void
     {
         $this->expectException(ServiceException::class);
-        $this->expectExceptionMessageRegExp('/Order not found/');
 
         $logger = new TestLogger();
         $credentials = new Credentials(
@@ -212,6 +213,8 @@ class RefundServiceTest extends SoapServiceTestCase
                 $soapClient->__getLastResponse(),
                 $logger
             );
+
+            $this->assertNotFalse(strpos($exception->getMessage(), 'Order not found'));
 
             throw $exception;
         }

@@ -8,7 +8,7 @@ The DP OneClickForRefund API SDK package offers an interface to the following we
 
 ### System Requirements
 
-- PHP 7.1+ with SOAP extension
+- PHP 7.2+ with SOAP extension
 
 ### Package Requirements
 
