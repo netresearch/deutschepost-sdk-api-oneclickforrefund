@@ -10,19 +10,10 @@ namespace DeutschePost\Sdk\OneClickForRefund\Model\RequestType;
 
 class ShoppingCart
 {
-    /**
-     * @var string $shopOrderId
-     */
-    private $shopOrderId;
+    private ?VoucherSet $voucherSet = null;
 
-    /**
-     * @var VoucherSet $voucherSet
-     */
-    private $voucherSet;
-
-    public function __construct(string $shopOrderId)
+    public function __construct(private string $shopOrderId)
     {
-        $this->shopOrderId = $shopOrderId;
     }
 
     public function setVoucherSet(VoucherSet $voucherSet): void

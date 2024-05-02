@@ -22,9 +22,6 @@ class ErrorHandlerDecorator extends AbstractDecorator
      * The RetoureVoucherException wraps different types of exceptions.
      * To find out if the actual exception is related to a an invalid token,
      * the error ID property gets examined.
-     *
-     * @param \stdClass $retoureVoucherException
-     * @return bool
      */
     private function isAuthError(\stdClass $retoureVoucherException): bool
     {
@@ -40,7 +37,11 @@ class ErrorHandlerDecorator extends AbstractDecorator
         try {
             return parent::retoureVouchers($requestType);
         } catch (\SoapFault $fault) {
-            if (isset($fault->detail) && property_exists($fault->detail, 'RetoureVoucherException')) {
+            if (
+                property_exists($fault, 'detail')
+                && $fault->detail !== null
+                && property_exists($fault->detail, 'RetoureVoucherException')
+            ) {
                 if ($this->isAuthError($fault->detail->RetoureVoucherException)) {
                     throw new AuthenticationErrorException(sprintf('%s ', $fault->getMessage()));
                 }

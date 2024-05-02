@@ -20,8 +20,6 @@ abstract class AbstractClient
     /**
      * Action to authenticate a user on the system.
      *
-     * @param AuthenticateUserRequest $requestType
-     * @return AuthenticateUserResponse
      *
      * @throws \SoapFault
      * @throws \Exception
@@ -31,7 +29,6 @@ abstract class AbstractClient
     /**
      * The service operation returns a new return ID that can be used to generate a return.
      *
-     * @return CreateRetoureIdResponse
      *
      * @throws AuthenticationErrorException
      * @throws \SoapFault
@@ -42,8 +39,6 @@ abstract class AbstractClient
     /**
      * The service operation is used to submit returns for postage stamps.
      *
-     * @param CancelVouchersRequest $requestType
-     * @return CancelVouchersResponse
      *
      * @throws AuthenticationErrorException
      * @throws \SoapFault

@@ -19,21 +19,11 @@ use DeutschePost\Sdk\OneClickForRefund\Soap\AbstractDecorator;
 
 class AuthenticationDecorator extends AbstractDecorator
 {
-    /**
-     * @var \SoapClient
-     */
-    private $soapClient;
-
-    /**
-     * @var CredentialsInterface
-     */
-    private $credentials;
-
-    public function __construct(AbstractClient $client, \SoapClient $soapClient, CredentialsInterface $credentials)
-    {
-        $this->soapClient = $soapClient;
-        $this->credentials = $credentials;
-
+    public function __construct(
+        AbstractClient $client,
+        private readonly \SoapClient $soapClient,
+        private readonly CredentialsInterface $credentials
+    ) {
         parent::__construct($client);
     }
 

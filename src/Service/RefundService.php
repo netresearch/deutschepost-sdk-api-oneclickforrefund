@@ -19,34 +19,22 @@ use DeutschePost\Sdk\OneClickForRefund\Soap\AbstractClient;
 
 class RefundService implements RefundServiceInterface
 {
-    /**
-     * @var AbstractClient
-     */
-    private $client;
-
-    /**
-     * @var TokenProvider
-     */
-    private $tokenProvider;
-
-    public function __construct(AbstractClient $client, TokenProvider $tokenProvider)
-    {
-        $this->client = $client;
-        $this->tokenProvider = $tokenProvider;
+    public function __construct(
+        private readonly AbstractClient $client,
+        private readonly TokenProvider $tokenProvider
+    ) {
     }
 
     public function cancelVouchers(string $orderId, array $voucherIds = []): int
     {
         $voucherNumbers = array_map(
-            function (string $voucherId) {
-                return (string) hexdec(substr($voucherId, 10, 9));
-            },
+            fn(string $voucherId) => (string) hexdec(substr($voucherId, 10, 9)),
             $voucherIds
         );
 
         try {
             $shoppingCart = new ShoppingCart($orderId);
-            if (!empty($voucherNumbers)) {
+            if ($voucherNumbers !== []) {
                 $shoppingCart->setVoucherSet(new VoucherSet($voucherNumbers));
             }
 
@@ -57,7 +45,7 @@ class RefundService implements RefundServiceInterface
                 $shoppingCart
             );
             $response = $this->client->retoureVouchers($request);
-        } catch (AuthenticationErrorException $exception) {
+        } catch (AuthenticationErrorException) {
             $this->tokenProvider->resetToken();
             return $this->cancelVouchers($orderId, $voucherIds);
         } catch (\Throwable $exception) {

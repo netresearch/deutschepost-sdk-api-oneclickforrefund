@@ -11,15 +11,9 @@ namespace DeutschePost\Sdk\OneClickForRefund\Model\RequestType;
 class VoucherSet
 {
     /**
-     * @var string[] $voucherNo
-     */
-    private $voucherNo;
-
-    /**
      * @param string[] $voucherNo
      */
-    public function __construct(array $voucherNo)
+    public function __construct(private array $voucherNo)
     {
-        $this->voucherNo = $voucherNo;
     }
 }

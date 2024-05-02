@@ -15,9 +15,6 @@ class CreateRetoureIdResponse
      */
     private $shopRetoureId;
 
-    /**
-     * @return string
-     */
     public function getShopRetoureId(): string
     {
         return $this->shopRetoureId;

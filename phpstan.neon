@@ -1,5 +1,9 @@
 includes:
 parameters:
+  level: 7
+  paths:
+      - src
+  treatPhpDocTypesAsCertain: false
   ignoreErrors:
     - '#is never written, only read\.$#'
     - '#is never read, only written\.$#'

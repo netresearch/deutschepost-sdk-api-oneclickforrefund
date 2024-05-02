@@ -16,14 +16,8 @@ use DeutschePost\Sdk\OneClickForRefund\Model\CreateRetoureIdResponse;
 
 class Client extends AbstractClient
 {
-    /**
-     * @var \SoapClient
-     */
-    private $soapClient;
-
-    public function __construct(\SoapClient $soapClient)
+    public function __construct(private \SoapClient $soapClient)
     {
-        $this->soapClient = $soapClient;
     }
 
     public function authenticateUser(AuthenticateUserRequest $requestType): AuthenticateUserResponse

@@ -13,58 +13,14 @@ use DeutschePost\Sdk\OneClickForRefund\Api\TokenStorageInterface;
 
 class Credentials implements CredentialsInterface
 {
-    /**
-     * @var string
-     */
-    private $username;
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $partnerId;
-
-    /**
-     * @var string
-     */
-    private $partnerKey;
-
-    /**
-     * @var int
-     */
-    private $keyPhase;
-
-    /**
-     * @var TokenStorageInterface
-     */
-    private $tokenStorage;
-
-    /**
-     * @param string $username
-     * @param string $password
-     * @param string $partnerId
-     * @param string $partnerKey
-     * @param int $keyPhase
-     * @param TokenStorageInterface $tokenStorage
-     */
     public function __construct(
-        string $username,
-        string $password,
-        string $partnerId,
-        string $partnerKey,
-        int $keyPhase,
-        TokenStorageInterface $tokenStorage
+        private string $username,
+        private string $password,
+        private string $partnerId,
+        private string $partnerKey,
+        private int $keyPhase,
+        private TokenStorageInterface $tokenStorage
     ) {
-        $this->username = $username;
-        $this->password = $password;
-        $this->partnerId = $partnerId;
-        $this->partnerKey = $partnerKey;
-        $this->keyPhase = $keyPhase;
-        $this->tokenStorage = $tokenStorage;
     }
 
     public function getUsername(): string

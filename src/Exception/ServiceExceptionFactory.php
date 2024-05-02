@@ -15,9 +15,6 @@ class ServiceExceptionFactory
 {
     /**
      * Create a service exception.
-     *
-     * @param \Throwable $exception
-     * @return ServiceException
      */
     public static function createServiceException(\Throwable $exception): ServiceException
     {

@@ -15,20 +15,11 @@ use DeutschePost\Sdk\OneClickForRefund\Soap\AbstractClient;
 
 class AuthenticationService
 {
-    /**
-     * @var AbstractClient
-     */
-    private $client;
-
-    public function __construct(AbstractClient $client)
+    public function __construct(private readonly AbstractClient $client)
     {
-        $this->client = $client;
     }
 
     /**
-     * @param string $username
-     * @param string $password
-     * @return string
      * @throws ServiceException
      */
     public function authenticate(string $username, string $password): string

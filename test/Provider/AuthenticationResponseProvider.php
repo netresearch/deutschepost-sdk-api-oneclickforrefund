@@ -12,8 +12,6 @@ class AuthenticationResponseProvider
 {
     /**
      * Application verification fails, wrong partner ID or key.
-     *
-     * @return string
      */
     public static function appVerificationFailure(): string
     {
@@ -22,8 +20,6 @@ class AuthenticationResponseProvider
 
     /**
      * User authentication fails, wrong user name or invalid password.
-     *
-     * @return string
      */
     public static function userAuthFailure(): string
     {
@@ -32,9 +28,6 @@ class AuthenticationResponseProvider
 
     /**
      * User authentication succeeds, token included with response.
-     *
-     * @param string $newToken
-     * @return string
      */
     public static function userAuthSuccess(string $newToken = 'myToken'): string
     {

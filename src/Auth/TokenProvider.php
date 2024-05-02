@@ -15,33 +15,22 @@ use DeutschePost\Sdk\OneClickForRefund\Service\AuthenticationService;
 
 class TokenProvider
 {
-    /**
-     * @var CredentialsInterface
-     */
-    private $credentials;
-
-    /**
-     * @var AuthenticationService
-     */
-    private $authService;
-
-    public function __construct(CredentialsInterface $credentials, AuthenticationService $authService)
-    {
-        $this->credentials = $credentials;
-        $this->authService = $authService;
+    public function __construct(
+        private CredentialsInterface $credentials,
+        private AuthenticationService $authService
+    ) {
     }
 
     /**
      * Load token from storage if available, from authentication endpoint otherwise.
      *
-     * @return string
      * @throws ServiceException
      */
     public function getToken(): string
     {
         try {
             $token = $this->credentials->getTokenStorage()->readToken();
-        } catch (AuthenticationStorageException $exception) {
+        } catch (AuthenticationStorageException) {
             $token = '';
         }
 

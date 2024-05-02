@@ -43,7 +43,7 @@ class LoggerDecorator extends AbstractDecorator
      * @return mixed
      * @throws \Exception
      */
-    private function logCommunication(\Closure $performRequest)
+    private function logCommunication(\Closure $performRequest): mixed
     {
         $logLevel = LogLevel::INFO;
 

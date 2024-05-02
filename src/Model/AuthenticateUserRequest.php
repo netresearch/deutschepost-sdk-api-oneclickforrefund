@@ -10,19 +10,7 @@ namespace DeutschePost\Sdk\OneClickForRefund\Model;
 
 class AuthenticateUserRequest
 {
-    /**
-     * @var string $username
-     */
-    private $username;
-
-    /**
-     * @var string $password
-     */
-    private $password;
-
-    public function __construct(string $username, string $password)
+    public function __construct(private string $username, private string $password)
     {
-        $this->username = $username;
-        $this->password = $password;
     }
 }

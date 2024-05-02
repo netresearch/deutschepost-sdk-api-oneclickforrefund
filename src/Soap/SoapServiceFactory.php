@@ -21,14 +21,8 @@ use Psr\Log\LoggerInterface;
 
 class SoapServiceFactory implements ServiceFactoryInterface
 {
-    /**
-     * @var \SoapClient
-     */
-    private $soapClient;
-
-    public function __construct(\SoapClient $soapClient)
+    public function __construct(private \SoapClient $soapClient)
     {
-        $this->soapClient = $soapClient;
     }
 
     private function createAuthenticationService(
