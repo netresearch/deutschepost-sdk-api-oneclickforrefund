@@ -28,10 +28,10 @@ class RefundServiceTest extends SoapServiceTestCase
      * - request contains params set during request build
      * - communication gets logged
      *
-     * @test
      * @throws ServiceException
      * @throws \ReflectionException
      */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function success(): void
     {
         $shopOrderId = '1234567890';
@@ -81,10 +81,10 @@ class RefundServiceTest extends SoapServiceTestCase
      * - only instances of ServiceException get thrown
      * - communication gets logged with ERROR severity
      *
-     * @test
      * @throws ServiceException
      * @throws \ReflectionException
      */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function appAuthenticationError(): void
     {
         $this->expectException(ServiceException::class);
@@ -127,10 +127,10 @@ class RefundServiceTest extends SoapServiceTestCase
      * - only instances of ServiceException get thrown
      * - communication gets logged with ERROR severity
      *
-     * @test
      * @throws ServiceException
      * @throws \ReflectionException
      */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function userAuthenticationError(): void
     {
         $this->expectException(ServiceException::class);
@@ -176,10 +176,10 @@ class RefundServiceTest extends SoapServiceTestCase
      * - only instances of ServiceException get thrown
      * - communication gets logged with ERROR severity
      *
-     * @test
      * @throws ServiceException
      * @throws \ReflectionException
      */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function unknownOrderId(): void
     {
         $this->expectException(ServiceException::class);
@@ -225,10 +225,10 @@ class RefundServiceTest extends SoapServiceTestCase
      *
      * Assert that new token is stored in token storage.
      *
-     * @test
      * @throws ServiceException
      * @throws \ReflectionException
      */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function tokenRefresh(): void
     {
         $oldToken = 'invalid token';

@@ -7,3 +7,4 @@ parameters:
   ignoreErrors:
     - '#is never written, only read\.$#'
     - '#is never read, only written\.$#'
+    - '#Call to function property_exists\(\) with SoapFault and ''detail'' will always evaluate to true\.#'

@@ -16,7 +16,7 @@ class SoapClientFake extends \SoapClient
      * @param mixed[]|null $options
      * @throws \SoapFault
      */
-    public function __construct(mixed $wsdl, array $options = null)
+    public function __construct(mixed $wsdl, ?array $options = null)
     {
         $wsdl = __DIR__ . '/../Provider/_files/OneClickForRefund/OneClickForRefund.wsdl';
 

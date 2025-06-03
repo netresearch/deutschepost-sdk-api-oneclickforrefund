@@ -20,15 +20,9 @@ use Psr\Log\LogLevel;
 
 class LoggerDecorator extends AbstractDecorator
 {
-    /**
-     * @var \SoapClient
-     */
-    private $soapClient;
+    private \SoapClient $soapClient;
 
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    private \Psr\Log\LoggerInterface $logger;
 
     public function __construct(AbstractClient $client, \SoapClient $soapClient, LoggerInterface $logger)
     {
@@ -39,8 +33,6 @@ class LoggerDecorator extends AbstractDecorator
     }
 
     /**
-     * @param \Closure $performRequest
-     * @return mixed
      * @throws \Exception
      */
     private function logCommunication(\Closure $performRequest): mixed
@@ -76,27 +68,21 @@ class LoggerDecorator extends AbstractDecorator
 
     public function authenticateUser(AuthenticateUserRequest $requestType): AuthenticateUserResponse
     {
-        $performRequest = function () use ($requestType) {
-            return parent::authenticateUser($requestType);
-        };
+        $performRequest = (fn(): AuthenticateUserResponse => parent::authenticateUser($requestType));
 
         return $this->logCommunication($performRequest);
     }
 
     public function createRetoureId(): CreateRetoureIdResponse
     {
-        $performRequest = function () {
-            return parent::createRetoureId();
-        };
+        $performRequest = (fn(): CreateRetoureIdResponse => parent::createRetoureId());
 
         return $this->logCommunication($performRequest);
     }
 
     public function retoureVouchers(CancelVouchersRequest $requestType): CancelVouchersResponse
     {
-        $performRequest = function () use ($requestType) {
-            return parent::retoureVouchers($requestType);
-        };
+        $performRequest = (fn(): CancelVouchersResponse => parent::retoureVouchers($requestType));
 
         return $this->logCommunication($performRequest);
     }

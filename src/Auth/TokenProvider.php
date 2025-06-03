@@ -34,7 +34,7 @@ class TokenProvider
             $token = '';
         }
 
-        if (!$token) {
+        if ($token === '' || $token === '0') {
             $token = $this->authService->authenticate(
                 $this->credentials->getUsername(),
                 $this->credentials->getPassword()

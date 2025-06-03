@@ -28,7 +28,7 @@ class RefundService implements RefundServiceInterface
     public function cancelVouchers(string $orderId, array $voucherIds = []): int
     {
         $voucherNumbers = array_map(
-            fn(string $voucherId) => (string) hexdec(substr($voucherId, 10, 9)),
+            fn(string $voucherId): string => (string) hexdec(substr($voucherId, 10, 9)),
             $voucherIds
         );
 
