@@ -1,3 +1,5 @@
+> **⚠️ DEPRECATED:** This package is abandoned and no longer maintained. Use [`deutschepost/sdk-api-internetmarke`](https://github.com/netresearch/deutschepost-sdk-api-internetmarke) instead.
+
 # Deutsche Post INTERNETMARKE 1C4R API SDK
 
 The DP OneClickForRefund API SDK package offers an interface to the following web services:
